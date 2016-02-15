@@ -1,0 +1,15 @@
+- name: Instalar zsh
+  become: true
+  apt: name=zsh update_cache=yes
+
+- name: Clonar oh-my-zsh
+  git: repo=git://github.com/robbyrussell/oh-my-zsh.git
+    dest={{ ansible_env.HOME }}/.oh-my-zsh
+
+- name: Generar ~/.zshrc
+  copy: src={{ ansible_env.HOME }}/.oh-my-zsh/templates/zshrc.zsh-template
+    dest={{ ansible_env.HOME }}/.zshrc
+
+- name: Establecer shell por defecto
+  become: true
+  user: shell=/usr/bin/zsh name={{ ansible_env.USER }}
