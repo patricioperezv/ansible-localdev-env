@@ -14,6 +14,6 @@
   git: repo={{ dotfile_repo_uri }} dest={{ ansible_env.HOME }}/.dotfiles
 
 - name: Linkear todo usando homemaker
-  command: homemaker main.toml .
+  command: homemaker -clobber main.toml .
   args:
     chdir: "{{ ansible_env.HOME }}/.dotfiles"
