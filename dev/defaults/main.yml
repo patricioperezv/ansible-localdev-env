@@ -2,6 +2,7 @@
   pkgs:
     - git-core
     - postgresql-client
+    - mysql-client
     - build-essential
     - tree
     - sl
