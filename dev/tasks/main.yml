@@ -16,4 +16,4 @@
 
 - name: Instalar gig
   become: true
-  pip: name=gig
+  pip: name=gig executable=pip3
