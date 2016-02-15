@@ -13,3 +13,7 @@
 - name: Configurar vim como editor por defecto
   become: true
   alternatives: name=editor path=/usr/bin/vim.basic
+
+- name: Instalar gig
+  become: true
+  pip: name=gig

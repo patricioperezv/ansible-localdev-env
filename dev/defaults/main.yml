@@ -13,3 +13,5 @@
     - atop
     - kexec-tools
     - nload
+    - python3-pip
+    - virtualenv
