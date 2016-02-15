@@ -10,6 +10,14 @@
   become: true
   apt: name=oracle-java8-installer update_cache=yes
 
+- name: Setear oracle jdk como el java por defecto
+  become: true
+  alternatives: name=java path=/usr/lib/jvm/java-8-oracle/jre/bin/java
+
+- name: Setear oracle jdk como el javac por defecto
+  become: true
+  alternatives: name=javac path=/usr/lib/jvm/java-8-oracle/bin/javac
+
 - name: Instalar Maven
   become: true
   apt: name=maven state=present
