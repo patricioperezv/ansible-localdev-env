@@ -1,0 +1,7 @@
+- name: Agregar PPA
+  become: true
+  apt_repository: repo='ppa:atareao/telegram'
+
+- name: Instalar telegram
+  become: true
+  apt: name=telegram update_cache=yes state=present
