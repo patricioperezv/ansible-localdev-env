@@ -1,0 +1,19 @@
+- name: Instalar llave GPG repositorio Google
+  become: true
+  apt_key: url=https://dl.google.com/linux/linux_signing_key.pub state=present
+
+- name: Agregar repositorio APT de Google
+  become: true
+  apt_repository: repo='deb http://dl.google.com/linux/chrome/deb/ stable main' state=present
+
+- name: Instalar Chrome
+  become: true
+  apt: name=google-chrome-stable state=present update_cache=yes
+
+- name: Dejar Firefox como default en x-www-browser
+  become: true
+  alternatives: name=x-www-browser path=/usr/bin/firefox
+
+- name: Dejar Firefox como default en gnome-www-browser
+  become: true
+  alternatives: name=gnome-www-browser path=/usr/bin/firefox
