@@ -36,4 +36,13 @@ Instala los siguientes componentes:
 
 ## Warning
 
-Homemaker corre con la opcion `-clobber`, la cual borra todos los ficheros/directorios presentes en la configuración
+* Homemaker corre con la opcion `-clobber`, la cual borra todos los ficheros/directorios presentes en la configuración.
+* Probado en Ubuntu 15.10.
+
+## Correr el Playbook
+
+Debido a que el playbook requiere operaciones de superusuario, necesitamos ejecutarlo con la opcion `--ask-become-pass`:
+
+~~~bash
+ansible-playbook --ask-become-pass development.yml
+~~~
