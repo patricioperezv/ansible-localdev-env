@@ -9,3 +9,7 @@
 - name: Instalar JDK 8 de Oracle
   become: true
   apt: name=oracle-java8-installer update_cache=yes
+
+- name: Instalar Maven
+  become: true
+  apt: name=maven state=present
