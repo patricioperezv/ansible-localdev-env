@@ -5,4 +5,14 @@
 - name: Instalar PHPStorm
   shell: echo {{ umake_home }}/ide/phpstorm | umake ide phpstorm
   args:
-    creates: "{{ umake_home }}/bin/jetbrains-phpstorm"
+    creates: "{{ applications_path }}/jetbrains-phpstorm.desktop"
+
+- name: Instalar IntelliJ Ultimate
+  shell: echo {{ umake_home }}/ide/idea-ultimate | umake ide idea-ultimate
+  args:
+    creates: "{{ applications_path }}/jetbrains-idea.desktop"
+
+- name: Instalar NetBeans
+  shell: echo {{ umake_home }}/ide/netbeans | umake ide netbeans
+  args:
+    creates: "{{ applications_path }}/netbeans.desktop"

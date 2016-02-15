@@ -1,0 +1,2 @@
+---
+  applications_path: "{{ ansible_env.HOME }}/.local/share/applications"
