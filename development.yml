@@ -1,5 +1,9 @@
 - hosts: localhost
   roles:
-    - atom
     - dev
+    - oh-my-zsh
     - java
+    - atom
+    - ides
+    - chrome
+    - extra
