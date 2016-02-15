@@ -1,7 +1,3 @@
-- name: Añadir repo de ubuntu-make
-  become: true
-  apt_repository: repo='ppa:ubuntu-desktop/ubuntu-make'
-
 - name: Instalar paquetes de desarrollo
   become: true
   apt: pkg={{ item }} state=installed update_cache=yes
@@ -16,3 +12,12 @@
     - vim
     - htop
     - atop
+    - kexec-tools
+
+- name: Configurar kexec-tools para manejar reinicios rápidos
+  become: true
+  debconf: name='kexec-tools' question='kexec-tools/load_kexec' value='true' vtype='boolean'
+
+- name: Configurar kexec-tools para usar config de grub
+  become: true
+  debconf: name='kexec-tools' question='kexec-tools/use_grub_config' value='true' vtype='boolean'
