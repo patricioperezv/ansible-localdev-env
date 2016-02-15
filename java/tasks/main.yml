@@ -1,0 +1,11 @@
+- name: Agregar PPA de Webupd8 java
+  become: true
+  apt_repository: repo='ppa:webupd8team/java'
+
+- name: Aceptar licencia de Oracle
+  become: true
+  debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+
+- name: Instalar JDK 8 de Oracle
+  become: true
+  apt: name=oracle-java8-installer update_cache=yes
