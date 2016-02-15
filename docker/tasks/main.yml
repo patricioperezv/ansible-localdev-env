@@ -1,0 +1,46 @@
+- name: Agregar llave GPG
+  become: true
+  apt_key: keyserver=p80.pool.sks-keyservers.net id=58118E89F3A912897C070ADBF76221572C52609D
+
+- name: Agregar repo APT
+  become: true
+  apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-{{ ansible_distribution_release }} main' state=present
+
+- name: Registrar versión del kernel que esta corriendo
+  command: uname -r
+  register: running_kernel
+  changed_when: false
+
+- name: Instalar linux-image-extra
+  become: true
+  apt: name=linux-image-extra-{{ running_kernel.stdout }} state=present update_cache=yes
+
+- name: Instalar docker
+  become: true
+  apt: name=docker-engine state=present
+
+- name: Habilitar docker al inicio e iniciarlo
+  become: true
+  service: name=docker enabled=yes state=started
+
+- name: Añadir usuario al grupo docker
+  become: true
+  user: name={{ ansible_env.USER }} groups=docker append=yes
+
+- name: Registrar plataforma (para docker-compose)
+  command: uname -s
+  register: running_platform
+  changed_when: false
+
+- name: Registrar arquitectura (tambien para docker-compose)
+  command: uname -m
+  register: running_arch
+  changed_when: false
+
+- name: Instalar docker-compose
+  become: true
+  get_url: url=https://github.com/docker/compose/releases/download/1.6.0/docker-compose-{{ running_platform.stdout }}-{{ running_arch.stdout }} dest=/usr/local/bin/docker-compose mode=0775
+
+- name: Hacer link simbolico de docker-compose a fig
+  become: true
+  file: src=/usr/local/bin/docker-compose dest=/usr/local/bin/fig state=link
