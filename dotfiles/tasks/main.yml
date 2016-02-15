@@ -9,3 +9,11 @@
 
 - name: Instalar Homemaker al path bin del usuario
   copy: remote_src=true src=/tmp/homemaker_linux_amd64/homemaker dest={{ binary_user_path }} mode=0775
+
+- name: Clonar repositorio de dotfiles
+  git: repo={{ dotfile_repo_uri }} dest={{ ansible_env.HOME }}/.dotfiles
+
+- name: Linkear todo usando homemaker
+  command: homemaker main.toml .
+  args:
+    chdir: "{{ ansible_env.HOME }}/.dotfiles"

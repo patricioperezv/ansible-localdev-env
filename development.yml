@@ -8,5 +8,6 @@
     - chrome
     - extra
     - docker
+    - dotfiles
   vars:
     docker_compose_version: 1.6.0
