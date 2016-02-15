@@ -1,0 +1,2 @@
+---
+  umake_home: "{{ ansible_env.HOME }}/.local/share/umake"
