@@ -9,3 +9,7 @@
 - name: Configurar kexec-tools para usar config de grub
   become: true
   debconf: name='kexec-tools' question='kexec-tools/use_grub_config' value='true' vtype='boolean'
+
+- name: Configurar vim como editor por defecto
+  become: true
+  alternatives: name=editor path=/usr/bin/vim.basic
