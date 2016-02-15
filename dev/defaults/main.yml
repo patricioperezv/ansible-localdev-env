@@ -1,0 +1,14 @@
+---
+  pkgs:
+    - git-core
+    - postgresql-client
+    - build-essential
+    - tree
+    - sl
+    - gitg
+    - ubuntu-make
+    - vim
+    - htop
+    - atop
+    - kexec-tools
+    - nload

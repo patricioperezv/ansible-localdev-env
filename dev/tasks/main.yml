@@ -1,18 +1,6 @@
 - name: Instalar paquetes de desarrollo
   become: true
-  apt: pkg={{ item }} state=installed update_cache=yes
-  with_items:
-    - git-core
-    - postgresql-client
-    - build-essential
-    - tree
-    - sl
-    - gitg
-    - ubuntu-make
-    - vim
-    - htop
-    - atop
-    - kexec-tools
+  apt: pkg={{ pkgs }} state=installed update_cache=yes
 
 - name: Configurar kexec-tools para manejar reinicios rápidos
   become: true
