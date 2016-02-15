@@ -1,0 +1,3 @@
+---
+  dotfile_repo_uri: boilerplate
+  binary_user_path: "{{ ansible_env.HOME }}/.local/bin"
