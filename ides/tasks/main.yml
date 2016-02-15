@@ -2,6 +2,10 @@
   become: true
   apt_repository: repo='ppa:ubuntu-desktop/ubuntu-make'
 
+- name: Instalar ubuntu-make
+  become: true
+  apt: name=ubuntu-make update_cache=yes
+
 - name: Instalar PHPStorm
   shell: echo {{ umake_home }}/ide/phpstorm | umake ide phpstorm
   args:
