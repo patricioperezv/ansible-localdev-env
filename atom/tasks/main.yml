@@ -1,0 +1,6 @@
+- name: Descargar deb
+  get_url: url=https://atom.io/download/deb dest=/tmp/atom.deb
+
+- name: Instalar atom
+  apt: deb=/tmp/atom.deb
+  become: true
