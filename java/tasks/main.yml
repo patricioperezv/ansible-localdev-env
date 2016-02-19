@@ -21,3 +21,12 @@
 - name: Instalar Maven
   become: true
   apt: name=maven state=present
+
+- name: Descargar binario Apache CXF
+  get_url: url=http://www.eu.apache.org/dist/cxf/{{ apache_cxf_version }}/apache-cxf-{{ apache_cxf_version }}.tar.gz dest=/tmp/apache-cxf.tar.gz
+
+- name: Descomprimir tarball binario Apache CXF
+  unarchive: src=/tmp/apache-cxf.tar.gz dest=/tmp copy=no
+
+- name: Instalar binarios Apache CXF
+  command: cp -r /tmp/apache-cxf-{{ apache_cxf_version }} {{ local_usr_share_path }}/apache-cxf
