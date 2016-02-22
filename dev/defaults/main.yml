@@ -16,3 +16,4 @@
     - python3-pip
     - virtualenv
     - curl
+    - git-flow

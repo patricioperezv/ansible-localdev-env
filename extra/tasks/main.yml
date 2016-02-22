@@ -13,3 +13,6 @@
 - name: Instalar VLC
   become: true
   apt: name=vlc update_cache=yes state=present
+
+- name: Establecer VLC como reproductor por defecto para videos
+  command: cat /usr/share/applications/defaults.list | grep video | sed 's/totem\.desktop/vlc\.desktop/g' > {{ ansible_env.HOME }}/.config/mimeapps.list
