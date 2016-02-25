@@ -17,3 +17,5 @@
     - virtualenv
     - curl
     - git-flow
+    - whois
+    - shutter
