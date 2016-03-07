@@ -20,3 +20,8 @@
   shell: echo {{ umake_home }}/ide/netbeans | umake ide netbeans
   args:
     creates: "{{ applications_path }}/netbeans.desktop"
+
+- name: Instalar Spring Tools Suite
+  shell: echo {{ umake_home }}/ide/spring-tools-suite | umake ide spring-tools-suite
+  args:
+    creates: "{{ applications_path }}/STS.desktop"
