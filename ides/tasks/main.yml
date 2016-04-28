@@ -11,17 +11,17 @@
   args:
     creates: "{{ applications_path }}/jetbrains-phpstorm.desktop"
 
-- name: Instalar IntelliJ Ultimate
-  shell: echo {{ umake_home }}/ide/idea-ultimate | umake ide idea-ultimate
+- name: Instalar IntelliJ Community Edition
+  shell: echo {{ umake_home }}/ide/idea | umake ide idea
   args:
     creates: "{{ applications_path }}/jetbrains-idea.desktop"
 
-- name: Instalar NetBeans
-  shell: echo {{ umake_home }}/ide/netbeans | umake ide netbeans
-  args:
-    creates: "{{ applications_path }}/netbeans.desktop"
+#- name: Instalar NetBeans
+#  shell: echo {{ umake_home }}/ide/netbeans | umake ide netbeans
+#  args:
+#    creates: "{{ applications_path }}/netbeans.desktop"
 
-- name: Instalar Spring Tools Suite
-  shell: echo {{ umake_home }}/ide/spring-tools-suite | umake ide spring-tools-suite
-  args:
-    creates: "{{ applications_path }}/STS.desktop"
+#- name: Instalar Spring Tools Suite
+#  shell: echo {{ umake_home }}/ide/spring-tools-suite | umake ide spring-tools-suite
+#  args:
+#    creates: "{{ applications_path }}/STS.desktop"
