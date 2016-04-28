@@ -5,3 +5,7 @@
 - name: Instalar VLC
   become: true
   apt: name=vlc update_cache=yes state=present
+
+- name: Instalar Flash
+  become: true
+  apt: name=flashplugin-installer state=present
