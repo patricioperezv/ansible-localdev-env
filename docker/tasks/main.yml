@@ -39,7 +39,7 @@
 
 - name: Instalar docker-compose
   become: true
-  get_url: url=https://github.com/docker/compose/releases/download/1.6.0/docker-compose-{{ running_platform.stdout }}-{{ running_arch.stdout }} dest=/usr/local/bin/docker-compose mode=0775
+  get_url: url=https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-{{ running_platform.stdout }}-{{ running_arch.stdout }} dest=/usr/local/bin/docker-compose mode=0775
 
 - name: Hacer link simbolico de docker-compose a fig
   become: true
