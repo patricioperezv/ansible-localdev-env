@@ -6,11 +6,6 @@
   become: true
   apt: name=ubuntu-make update_cache=yes
 
-- name: Instalar PHPStorm
-  shell: echo {{ umake_home }}/ide/phpstorm | umake ide phpstorm
-  args:
-    creates: "{{ applications_path }}/jetbrains-phpstorm.desktop"
-
 - name: Instalar IntelliJ Community Edition
   shell: echo {{ umake_home }}/ide/idea | umake ide idea
   args:
