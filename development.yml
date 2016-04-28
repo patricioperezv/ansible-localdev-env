@@ -6,7 +6,7 @@
     - atom
     - ides
     - chrome
-    - extra
+    - multimedia
     - docker
     - dotfiles
   vars:
