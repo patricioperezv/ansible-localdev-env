@@ -10,4 +10,4 @@
     - docker
     - dotfiles
   vars:
-    docker_compose_version: 1.6.0
+    docker_compose_version: 1.7.0
