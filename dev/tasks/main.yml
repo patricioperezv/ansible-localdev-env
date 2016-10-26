@@ -14,6 +14,14 @@
   become: true
   alternatives: name=editor path=/usr/bin/vim.basic
 
+- name: Actualizar pip
+  become: True
+  pip: name=pip executable=pip3
+
+- name: Instalar setuptools
+  become: true
+  pip: name=setuptools executable=pip3
+  
 - name: Instalar gig
   become: true
   pip: name=gig executable=pip3

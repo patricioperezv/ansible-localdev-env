@@ -1,4 +1,4 @@
 ---
-  apache_cxf_version: 3.1.6
+  apache_cxf_version: 3.1.8
   binary_user_path: "{{ ansible_env.HOME }}/bin"
   local_usr_share_path: "{{ ansible_env.HOME }}/.local/share"
